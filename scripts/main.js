@@ -6,7 +6,11 @@ import { renderToDom } from "../utils/renderToDom.js";
 // Reusable function to get the cards on the DOM
 // .forEach()
 const renderCards = (array) => {
-  let refStuff = "<h1 class='text-white'>Cards Go Here!</h1>";
+  let refStuff = "";
+
+  array.forEach((taco) => {
+    refStuff += card(taco);
+    });
   renderToDom("#cards", refStuff);
 }
 
