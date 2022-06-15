@@ -33,7 +33,8 @@ const search = (event) => {
 // .filter() & .reduce() &.sort() - chaining
 const buttonFilter = (event) => {
   if(event.target.id.includes('free')) {
-    console.log('FREE')
+    const free = referenceList.filter((taco) => taco.price <= 0);
+    renderCards(free);
   }
   if(event.target.id.includes('cartFilter')) {
     console.log('cartFilter')
