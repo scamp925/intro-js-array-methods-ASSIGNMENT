@@ -37,7 +37,8 @@ const buttonFilter = (event) => {
     renderCards(free);
   }
   if(event.target.id.includes('cartFilter')) {
-    console.log('cartFilter')
+    const wishlist = referenceList.filter((taco) => taco.inCart === true);
+    renderCards(wishlist);
   }
   if(event.target.id.includes('books')) {
     console.log('books!')
