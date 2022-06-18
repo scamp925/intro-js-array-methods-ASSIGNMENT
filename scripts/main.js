@@ -18,7 +18,15 @@ const renderCards = (array) => {
 // .findIndex() & (.includes() - string method)
 const toggleCart = (event) => {
   if (event.target.id.includes("fav-btn")) {
-   console.log('Clicked Fav btn')
+    const [, id] = event.target.id.split('--');
+    
+    const index = referenceList.findIndex((item) => item.id === Number(id)) // Number is a JS method that turns a string into a number which I need b/c the id on the right side of condition is coming in as a string
+    
+    referenceList[index].inCart = !referenceList[index].inCart // Toggling whether or not the obj's inCart is true or false
+
+    cartTotal();
+
+    renderCards(referenceList);
   }
 }
 
