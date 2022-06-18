@@ -25,8 +25,13 @@ const toggleCart = (event) => {
 // SEARCH
 // .filter()
 const search = (event) => {
-  const eventLC = event.target.value.toLowerCase();
-  console.log(eventLC)
+  const userInput = event.target.value.toLowerCase();
+  const searchResult = referenceList.filter((taco) =>
+    taco.title.toLowerCase().includes(userInput) ||
+    taco.author.toLowerCase().includes(userInput) || 
+    taco.description.toLowerCase().includes(userInput)
+  )
+  renderCards(searchResult);
 }
 
 // BUTTON FILTER
