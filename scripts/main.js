@@ -88,7 +88,14 @@ const buttonFilter = (event) => {
 const cartTotal = () => {
   const cart = referenceList.filter(item => item.inCart); // Gives a list of all the items in the cart
   const total = cart.reduce((a, b) => a + b.price, 0); // int value needs to be set to 0
+  const free = card.some(taco => taco.price <= 0);
   document.querySelector("#cartTotal").innerHTML = total.toFixed(2);
+
+  if (free) {
+    document.querySelector("#includes-free").innerHTML = 'INCLUDES FREE ITEMS'
+  } else {
+    document.querySelector("#includes-free").innerHTML = ''
+  }
 }
 
 // RESHAPE DATA TO RENDER TO DOM
